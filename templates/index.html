@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <table border="1">
+        <tr>
+            <th>Book_id</th>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Author</th>
+            <th>First Published</th>
+            <th>Last Updated</th>
+
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Book_id}}</td>
+            <td>{{.Title}}</td>
+            <td>{{.Summary}}</td>
+            <td>{{.Author}}</td>
+            <td>{{.First_published}}</td>
+            <td>{{.Last_updated}}</td>
+            <td>
+                <form method="POST" action="/delete/{{.Book_id}}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
